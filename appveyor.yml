@@ -1,0 +1,33 @@
+#Ref: https://www.appveyor.com/docs/appveyor-yml/
+
+#---------------------------------# 
+#      environment configuration  # 
+#---------------------------------# 
+version: 1.0.{build}
+os: WMF 5
+environment:
+  ModuleName: dupsug
+
+#---------------------------------# 
+#      install script             # 
+#---------------------------------# 
+install:
+  - ps: . .\AppVeyor\AppVeyorInstall.ps1
+
+#---------------------------------# 
+#      build configuration        # 
+#---------------------------------# 
+build_script: 
+  - ps: . .\AppVeyor\AppVeyorBuild.ps1
+
+#---------------------------------# 
+#      test configuration         # 
+#---------------------------------# 
+test_script: 
+  - ps: . .\AppVeyor\AppVeyorTest.ps1
+
+#---------------------------------# 
+#      deployment configuration   # 
+#---------------------------------# 
+deploy_script: 
+  - ps: . .\AppVeyor\AppveyorDeploy.ps1
